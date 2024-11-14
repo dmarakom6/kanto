@@ -23,6 +23,8 @@
     top: 0;
     left: 0;
     background: url('https://www.hult.edu/blog/media/uploads/2019/01/shutterstock_605300333_FEAT.jpg') no-repeat fixed center;
+
+    transition: opacity 500ms ease-out;
 }
 
 .welcome-container--box {
@@ -35,7 +37,7 @@
     flex-direction: column;
 
     width: 50%;
-    height: 50%;
+    height: 60%;
 
     background: rgba(250, 178, 178, 0.55);
     border-radius: 16px;
@@ -43,6 +45,15 @@
     backdrop-filter: blur(14.4px);
     -webkit-backdrop-filter: blur(14.4px);
     border: 1px solid rgba(250, 178, 178, 0.34);
+}
+
+@media screen and (max-width:800px) {
+    .welcome-container--box {
+        height: 90%;
+        width: 90%;
+        -webkit-backdrop-filter: blur(5.4px);
+        backdrop-filter: blur(5.4px);
+    }
 }
 
 .welcome-container--box h1 {
@@ -76,23 +87,34 @@
 
 .welcome-container--box button {
     margin: 2rem 0;
-	background-color:#333;
+    background-color: #333;
     box-shadow: none !important;
-	-webkit-border-radius:8px;
-	-moz-border-radius:8px;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    display: inline-block;
+    cursor: pointer;
     font-family: "Comfortaa", sans-serif;
+    font-size: 2rem;
     line-height: 1em;
     font-style: normal;
     color: var(--welcome-box-subtitle-color);
     background-color: #333;
     transition: all ease-in-out 300ms;
-	padding:13px 32px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #3d768a;
+    padding: 13px 32px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px var(--welcome-box-a--hover-color)
 }
+
 .welcome-container--box button:hover {
-	background-color:var(--welcome-box-a-color);
+    background-color: var(--welcome-box-a-color);
+}
+
+.visible {
+    opacity: 1;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
 }

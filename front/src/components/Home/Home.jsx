@@ -1,3 +1,5 @@
 export default function Home() {
-    return(undefined)
+    return(
+        <h1>Welcome!</h1>
+    )
 }
