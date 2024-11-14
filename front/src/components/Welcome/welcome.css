@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Mansalva&display=swap');
+
+:root {
+    --welcome-box-title-color: #ff2a2a;
+    --welcome-box-a-color: #ff2a2a;
+    --welcome-box-a--hover-color: #caff2a;
+    --welcome-box-subtitle-color: #fafafa;
+}
+
+* {
+    margin: 0;
+}
+
+.welcome-container {
+    width: 100%;
+    height: 100vh;
+    z-index: 99999;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    background: url('https://www.hult.edu/blog/media/uploads/2019/01/shutterstock_605300333_FEAT.jpg') no-repeat fixed center;
+}
+
+.welcome-container--box {
+
+    padding: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+
+    width: 50%;
+    height: 50%;
+
+    background: rgba(250, 178, 178, 0.55);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.4px);
+    -webkit-backdrop-filter: blur(14.4px);
+    border: 1px solid rgba(250, 178, 178, 0.34);
+}
+
+.welcome-container--box h1 {
+    margin-bottom: 1.33rem;
+    font-size: 5rem;
+    font-family: "Mansalva", sans-serif;
+    line-height: 1em;
+    font-style: normal;
+    color: var(--welcome-box-title-color);
+}
+
+.welcome-container--box p {
+    font-size: 2rem;
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--welcome-box-subtitle-color);
+}
+
+.welcome-container--box a {
+    color: var(--welcome-box-a-color);
+    text-decoration: none;
+    transition: color ease-in-out 300ms;
+}
+
+.welcome-container--box a:hover {
+    color: var(--welcome-box-a--hover-color);
+}
+
+
+.welcome-container--box button {
+    margin: 2rem 0;
+	background-color:#333;
+    box-shadow: none !important;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+    font-family: "Comfortaa", sans-serif;
+    line-height: 1em;
+    font-style: normal;
+    color: var(--welcome-box-subtitle-color);
+    background-color: #333;
+    transition: all ease-in-out 300ms;
+	padding:13px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.welcome-container--box button:hover {
+	background-color:var(--welcome-box-a-color);
+}

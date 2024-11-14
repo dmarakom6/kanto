@@ -5,7 +5,7 @@ import App from './App';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
     <Routes>
-      <Route path="/home" element={<App />} />
+      <Route path="/" element={<App />} />
     </Routes>
   </Router>
 );
