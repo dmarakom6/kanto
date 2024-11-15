@@ -44,7 +44,7 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(14.4px);
     -webkit-backdrop-filter: blur(14.4px);
-    border: 1px solid rgba(250, 178, 178, 0.34);
+    border: 1px solid rgba(207, 201, 201, 0.682);
 }
 
 @media screen and (max-width:800px) {
