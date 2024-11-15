@@ -8,7 +8,7 @@ export default function Welcome() {
     const [cookies, setCookie] = useCookies(['welcomeDismissed']);
 
     useEffect(() => {
-        console.log('Current cookie value:', cookies.welcomeDismissed);
+        // console.log('Current cookie value:', cookies.welcomeDismissed);
         if (cookies.welcomeDismissed === true) {
             setIsVisible(false);
             setIsHidden(true);
