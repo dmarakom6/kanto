@@ -14,9 +14,9 @@ export default function Welcome() {
         !isHidden && (
             <div className={`welcome-container ${isVisible ? 'visible' : 'hidden'}`}>
                 <div className="welcome-container--box">
-                    <h1>Κάν' το!</h1>
+                    <h1>Κάν&apos; το!</h1>
                     <p>Γίνε μέλος της ομάδας μας και δραστηριοποιήσου μαζί μας σήμερα. Μαζί, θα κάνουμε τα <i>λόγια</i>, <b>πράξη</b>. Σε περιμένουμε στον <a href="#">κοινό μας χώρο</a>.</p>
-                    <button onClick={handleClick}>Κάν'το Τώρα</button>
+                    <button onClick={handleClick}>Κάν&apos;το Τώρα</button>
                 </div>
             </div>
         )
