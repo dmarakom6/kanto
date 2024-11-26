@@ -54,3 +54,21 @@
     height: 50vh;
     border-radius: 20px;
 }
+
+.event-calendar--call {
+    font-size: 1.23em;
+    color: var(--fg-secondary);
+    position: absolute;
+    bottom: .6rem;
+    right: 1rem;
+}
+
+.event-calendar--call a {
+    color: var(--a-color);
+    text-decoration: none;
+    transition: color ease-in-out 300ms;
+}
+
+.event-calendar--call a:hover {
+    color: var(--a--hover-color);
+}

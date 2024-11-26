@@ -18,8 +18,15 @@
   --bg-third: #6E3636;
 
   --fg-primary: #fafafa;
-  --fg-secondary: rgb(168, 57, 57);
+  --fg-secondary: rgb(183, 28, 28);
   --fg-third: #d1ec06;
+
+  --a-color: #454242;
+  --a--hover-color: #ff2a2a;
+}
+
+body, html {
+  scroll-behavior: smooth;
 }
 
 body {
