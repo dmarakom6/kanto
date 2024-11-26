@@ -1,0 +1,56 @@
+
+.event-calendar--outer {
+    padding: 2rem;
+    margin-top: 3.5rem;
+    z-index: 999;
+}
+
+.event-calendar {
+    height: 100%;
+    width: 100%;
+    color: var(--fg-secondary);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background: rgba(212, 200, 200, 0.66);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.9px);
+    -webkit-backdrop-filter: blur(9.9px);
+    border: 1px solid rgba(212, 200, 200, 0.86);
+}
+
+@media screen and (max-width: 800px) {
+    .event-calendar, .event-calendar--outer {
+        padding: 0 !important;
+        margin-top: 5rem;
+    }
+}
+
+.event-calendar h1 {
+    font-size: 2rem;
+    position: absolute;
+    padding: 2rem 3rem;
+    top: 0;
+    left: 0;
+}
+
+.event-calendar--container {
+    display: flex;
+    padding-top: 6rem;
+
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-calendar--iframe {
+    margin-bottom: 3rem;
+    width: 80vw;
+    height: 50vh;
+    border-radius: 20px;
+}
