@@ -68,13 +68,13 @@
     padding: 2rem 0;
 }
 
- a {
+.vision--inner a {
     color: var(--fg-third);
     text-decoration: none;
     transition: all ease-in-out 300ms;
 }
 
-a:hover {
+.vision--inner a:hover {
     font-weight: bold;
 }
 
