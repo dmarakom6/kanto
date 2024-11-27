@@ -31,4 +31,5 @@ body, html {
 
 body {
   background: url("/abstractBGVert.png") right repeat-y;
+  background-size: contain;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import "../PastEvents.css"
 import { styled } from '@mui/system';
 import { Tabs as BaseTabs } from '@mui/base/Tabs';
