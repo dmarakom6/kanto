@@ -7,21 +7,22 @@ import { buttonClasses } from '@mui/base/Button';
 import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
 
 
-export default function UnstyledTabsVertical() {
+export default function ActivityCategories() {
   return (
-    <Tabs defaultValue={0} orientation="vertical">
+    <Tabs defaultValue={0} orientation={window.innerWidth > 800 ? "vertical" : "horizontal"}>
       <TabsList>
         <Tab>One</Tab>
         <Tab>Two</Tab>
         <Tab>Three</Tab>
+        <Tab>Four</Tab>
       </TabsList>
       <TabPanel className="tabpanel" value={0}>
         <img className="tabpanel--img" src="https://media.istockphoto.com/id/1371940128/photo/multiracial-friends-taking-big-group-selfie-shot-smiling-at-camera-laughing-young-people.jpg?s=612x612&w=0&k=20&c=FPs-C92zbN6RkHnPG4Fl9zyP2-HZWGy9Prdt46Yn-IY=" alt="Boilerplate" />
         <p className="tabpanel--p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam nesciunt, iusto consequuntur ipsam eaque aliquid temporibus accusantium odit placeat ea voluptatem error beatae maxime velit tempore, exercitationem officiis iste aliquam!</p>
         <div className="tabpanel--link-list">
-            <ul>Link1</ul>
-            <ul>Link2</ul>
-            <ul>Link3</ul>
+          <ul><span className="tabpanel--link-list-date">23/9/2024</span> Δραστηριότητα 1 - Παρακολούθηση της Παράστασης Ζ<a href="https://www.youtube.com">Youtube</a></ul>
+          <ul><span className="tabpanel--link-list-date">26/7/2024</span> Δραστηριότητα 2 - Επίσκεψη στο μουσείο Χ <a href="https://www.youtube.com">Vimeo</a></ul>
+          <ul><span className="tabpanel--link-list-date">29/6/2024</span> Δραστηριότητα 3 - Δωρεά στον μη-κερδοσκοπικό οργανισμό Υ<a href="https://www.youtube.com">PDF</a></ul>
         </div>
       </TabPanel>
 
@@ -31,32 +32,6 @@ export default function UnstyledTabsVertical() {
     </Tabs>
   );
 }
-
-const blue = {
-  50: '#F0F7FF',
-  100: '#C2E0FF',
-  200: '#80BFFF',
-  300: '#66B2FF',
-  400: '#3399FF',
-  500: '#007FFF',
-  600: '#0072E5',
-  700: '#0059B2',
-  800: '#004C99',
-  900: '#003A75',
-};
-
-const grey = {
-  50: '#F3F6F9',
-  100: '#E5EAF2',
-  200: '#DAE2ED',
-  300: '#C7D0DD',
-  400: '#B0B8C4',
-  500: '#9DA8B7',
-  600: '#6B7A90',
-  700: '#434D5B',
-  800: '#303740',
-  900: '#1C2025',
-};
 
 const main = "rgba(133, 58, 58, 1)"
 
@@ -107,8 +82,11 @@ const TabPanel = styled(BaseTabPanel)`
 
 const Tabs = styled(BaseTabs)`
   display: flex;
+  flex-direction: row; /* Default for wider screens */
   gap: 16px;
-  width: 200px;
+  @media (max-width: 1145px) {
+    flex-direction: column; /* Stack the tabs and panels vertically for smaller screens */
+  }
 `;
 
 const TabsList = styled(BaseTabsList)(
@@ -118,6 +96,9 @@ const TabsList = styled(BaseTabsList)(
   border-radius: 12px;
   margin-bottom: 16px;
   display: flex;
+  position: sticky;
+  top: 10%;
+  z-index: 9999;
   padding: 6px;
   gap: 12px;
   flex-direction: column;
@@ -125,5 +106,11 @@ const TabsList = styled(BaseTabsList)(
   justify-content: center;
   align-content: space-between;
   box-shadow: 0px 4px 8px ${main};
-  `,
+  
+  @media (max-width: 1145px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(4rem, 2fr)); /* Adjust column size for smaller screens */
+  }
+  `
 );
