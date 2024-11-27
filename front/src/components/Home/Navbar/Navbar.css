@@ -51,7 +51,7 @@ nav.nav {
 }
 
 .nav--links a.active-link {
-    color: var(--fg-secondary);
+    color: var(--fg-third);
     font-weight: 700;
 }
 
