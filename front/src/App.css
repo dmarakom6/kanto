@@ -26,6 +26,12 @@
   --a--hover-color: #ff2a2a;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+      --a-color: #a89c9c; /* Default link color for dark mode */
+  }
+}
+
 body, html {
   scroll-behavior: smooth;
 }
