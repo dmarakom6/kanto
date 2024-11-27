@@ -92,14 +92,13 @@ const Tabs = styled(BaseTabs)`
 
 const TabsList = styled(BaseTabsList)(
   ({ theme }) => `
-  min-width: 80px;
+  min-width: 6rem;
+  max-height: 30rem;
+  overflow-y: scroll;
   background-color: ${main};
   border-radius: 12px;
   margin-bottom: 16px;
   display: flex;
-  position: sticky;
-  top: 10%;
-  z-index: 9999;
   padding: 6px;
   gap: 12px;
   flex-direction: column;
@@ -112,6 +111,9 @@ const TabsList = styled(BaseTabsList)(
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(4rem, 2fr)); /* Adjust column size for smaller screens */
+    position: sticky;
+    top: 10%;
+    z-index: 9999;
   }
   `
 );

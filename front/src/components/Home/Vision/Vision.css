@@ -1,0 +1,23 @@
+.vision--outer {
+    padding: 2rem;
+    margin-top: 3.5rem;
+    z-index: 999;
+}
+
+.vision {
+    height: 100%;
+    width: 100%;
+    color: var(--fg-secondary);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background: rgba(212, 200, 200, 0.66);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.9px);
+    -webkit-backdrop-filter: blur(9.9px);
+    border: 1px solid rgba(212, 200, 200, 0.86);
+}
