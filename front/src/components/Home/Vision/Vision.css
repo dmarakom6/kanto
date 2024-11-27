@@ -2,22 +2,79 @@
     padding: 2rem;
     margin-top: 3.5rem;
     z-index: 999;
+    opacity: 0.6;
 }
 
 .vision {
     height: 100%;
     width: 100%;
-    color: var(--fg-secondary);
+
+    color: var(--fg-primary);
+
+    background: url("https://img.freepik.com/free-photo/confident-business-people-diversity-teamwork-concept_53876-127138.jpg?semt=ais_hybrid") center no-repeat;
+    background-size: cover;
+    background-blend-mode: color-dodge;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(110, 54, 54, 1);
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 
-    background: rgba(212, 200, 200, 0.66);
+
+}
+
+
+/* Optional: Provide a solid color fallback for older browsers */
+@supports not (backdrop-filter: blur(12px)) {
+    .vision {
+        background-color: rgba(212, 200, 200, 0.6);
+        /* Slightly more opaque fallback */
+    }
+}
+
+.vision--inner {
+    opacity: 1;
+
+    background: rgba(86, 8, 8, 0.753);
+    backdrop-filter: blur(12.9px);
+    -webkit-backdrop-filter: blur(12.9px);
+
+    width: 50%;
+    height: 50%;
+    padding: 3rem;
+
+    text-align: center;
+    font-size: 1.3rem;
+
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(9.9px);
-    -webkit-backdrop-filter: blur(9.9px);
-    border: 1px solid rgba(212, 200, 200, 0.86);
+    border: 1px solid rgba(110, 54, 54, 1);
+
+    margin: 2rem;
+
+    z-index: 999;
+
 }
+
+
+.vision h1 {
+    font-family: 'Mansalva', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 5rem;
+    color: var(--fg-third);
+    padding: 2rem 0;
+}
+
+ a {
+    color: var(--fg-third);
+    text-decoration: none;
+    transition: all ease-in-out 300ms;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
