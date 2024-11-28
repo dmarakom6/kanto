@@ -28,7 +28,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-      --a-color: #a89c9c; /* Default link color for dark mode */
+      --a-color: #ad5656; /* Default link color for dark mode */
   }
 }
 
