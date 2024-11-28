@@ -1,0 +1,49 @@
+footer.footer {
+    height: 5rem;
+
+    position: relative;
+
+    z-index: 9999;
+
+    background: rgba(133, 58, 58, 0.54);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.6px);
+    -webkit-backdrop-filter: blur(14.6px);
+    border-top: 1px solid var(--bg-secondary);
+
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 888px) {
+    footer.footer {
+        flex-direction: column;
+        height: fit-content;
+    }
+}
+
+.footer--copyright {
+    font-size: .9rem;
+}
+
+.footer--copyright a {
+    color: var(--fg-third);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer--copyright a:hover {
+    font-weight: bold;
+}
+
+.footer--title {
+    font-family: 'Mansalva';
+}
+
+

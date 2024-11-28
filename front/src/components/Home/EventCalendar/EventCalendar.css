@@ -63,6 +63,12 @@
     right: 1rem;
 }
 
+@media screen and (max-width: 700px) {
+.event-calendar--call {
+    bottom: 0;
+}
+}
+
 .event-calendar--call a {
     color: var(--a-color);
     text-decoration: none;

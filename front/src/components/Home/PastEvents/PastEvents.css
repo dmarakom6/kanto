@@ -21,7 +21,7 @@
     border: 1px solid rgb(132, 11, 11);
 
     padding: 2rem;
-    margin: 2rem 0;
+    margin: 1.5rem 0 2rem 0;
 
 }
 
@@ -30,7 +30,7 @@
     .past-events,
     .past-events--outer {
         padding: 0 !important;
-        margin-top: 5rem;
+        margin-top: 3rem;
     }
 }
 
@@ -132,7 +132,7 @@
 }
 
 .tabpanel--link-list a[href^="http"]::after,
-a[href^="https://"]::after {
+.tabpanel--link-list a[href^="https://"]::after {
     content: "";
     width: 11px;
     height: 11px;
@@ -145,7 +145,7 @@ a[href^="https://"]::after {
 }
 
 .tabpanel--link-list a[href^="http"]::before,
-a[href^="https://"]::before {
+.tabpanel--link-list a[href^="https://"]::before {
     content: "•";
     color: #666;
     font-size: 2rem;

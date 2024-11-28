@@ -1,6 +1,6 @@
 .vision--outer {
     padding: 2rem;
-    margin-top: 3.5rem;
+    margin-top: 1.5rem;
     z-index: 999;
     opacity: 0.8;
 }
@@ -66,6 +66,12 @@
     font-size: 5rem;
     color: var(--fg-third);
     padding: 2rem 0;
+}
+
+@media screen and (max-width: 500px) {
+    .vision h1 {
+        font-size: 2rem;
+    }
 }
 
 .vision--inner a {
