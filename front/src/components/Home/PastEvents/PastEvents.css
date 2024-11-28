@@ -76,14 +76,38 @@
     justify-content: space-evenly;
 }
 
-.tabpanel--img {
+.tabpanel--category-img {
     width: 80%;
-    height: 50%;
+    height: 25vh;
+    background-size: cover !important; /* I know it's bad practice, mui wants to override me! */
+    background-repeat: no-repeat !important;
+    background-position: center !important; 
+
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 1.4rem;
 
     border: 1px solid var(--bg-secondary);
     box-shadow: 0px 4px 8px #4c1f1f;
     border-radius: 16px;
+
+    position: relative;
 }
+
+
+.tabpanel--category-img--header {
+    filter: none; /* Prevent the child from inheriting the filter */
+    color: var(--fg-third);
+    font-size: 3rem;
+    font-family: 'Mansalva', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1; /* Keep it above the parent */
+}
+
 
 .tabpanel--p {
     font-size: 1.1rem;
