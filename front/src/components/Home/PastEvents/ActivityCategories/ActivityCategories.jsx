@@ -7,6 +7,8 @@ import { TabPanel as BaseTabPanel } from '@mui/base/TabPanel';
 import { buttonClasses } from '@mui/base/Button';
 import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
 
+const activity = {'url': ""} // debug for link display
+
 
 export default function ActivityCategories() {
   return (
@@ -21,7 +23,7 @@ export default function ActivityCategories() {
         <img className="tabpanel--img" src="https://media.istockphoto.com/id/1371940128/photo/multiracial-friends-taking-big-group-selfie-shot-smiling-at-camera-laughing-young-people.jpg?s=612x612&w=0&k=20&c=FPs-C92zbN6RkHnPG4Fl9zyP2-HZWGy9Prdt46Yn-IY=" alt="Boilerplate" />
         <p className="tabpanel--p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam nesciunt, iusto consequuntur ipsam eaque aliquid temporibus accusantium odit placeat ea voluptatem error beatae maxime velit tempore, exercitationem officiis iste aliquam!</p>
         <div className="tabpanel--link-list">
-          <ul><span className="tabpanel--link-list-date">23/9/2024</span> Δραστηριότητα 1 - Παρακολούθηση της Παράστασης Ζ<a href="https://www.youtube.com">Youtube</a></ul>
+          <ul><span className="tabpanel--link-list-date">23/9/2024</span> Δραστηριότητα 1 - Παρακολούθηση της Παράστασης Ζ<a style={{display: activity.url === "" ? "none" : "block" }} href="https://www.youtube.com">Youtube</a></ul>
           <ul><span className="tabpanel--link-list-date">26/7/2024</span> Δραστηριότητα 2 - Επίσκεψη στο μουσείο Χ <a href="https://www.youtube.com">Vimeo</a></ul>
           <ul><span className="tabpanel--link-list-date">29/6/2024</span> Δραστηριότητα 3 - Δωρεά στον μη-κερδοσκοπικό οργανισμό Υ<a href="https://www.youtube.com">PDF</a></ul>
         </div>

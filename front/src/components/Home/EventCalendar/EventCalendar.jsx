@@ -8,7 +8,7 @@ export default function EventCalendar() {
             <div className="event-calendar--container">
             <iframe className="event-calendar--iframe" src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FAthens&showTz=0&showTabs=0&mode=WEEK&title=%CE%A0%CF%81%CE%BF%CF%83%CE%B5%CF%87%CF%8E%CF%82%20-%20%CE%9A%CE%AC%CE%BD%CE%84%CF%84%CE%BF&src=a29pbm9zY2hvcm9za2FudG9AZ21haWwuY29t&color=%23039BE5"></iframe>
             <div className="event-calendar--call">
-                <p>Τηλ. Επικοινωνίας <a href="tel:000-000-000">6900000000</a></p>
+                <p>Επικοινωνία: <a href="mailto:koinoschoroskanto@gmail.com">koinoschoroskanto@gmail.com</a></p>
             </div>
             </div>
         </div>
