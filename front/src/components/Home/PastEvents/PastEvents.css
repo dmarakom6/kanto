@@ -119,15 +119,20 @@
 
 .tabpanel--link-list {
     padding: 0;
+    margin: 1rem;
     font-family: 'Comfortaa', Courier New, Courier, monospace;
     font-size: 1.67rem;
     line-height: calc(100% + 25px);
     overflow-y: scroll;
     max-height: 30%;
+    min-width: 70%;
     -webkit-box-shadow: 10px 10px 91px -42px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 91px -42px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 91px -42px rgba(0,0,0,0.75);
     border-radius: 16px;
+
+    display: flex;
+    flex-direction: column-reverse; /* Latest Event first */
 }
 
 .tabpanel--link-list>ul>a {
