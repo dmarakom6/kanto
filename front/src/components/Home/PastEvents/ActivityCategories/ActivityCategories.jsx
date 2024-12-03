@@ -56,7 +56,7 @@ export default function ActivityCategories() {
               return (
                 <ul key={event.title}>
                   <span className="tabpanel--link-list-date">{event.date}</span> {event.title}{" "}
-                  <a href={event.url}>Υλικό</a>
+                  <a href={event.url} style={{ display: event.url === "" ? "none" : "inline" }}>Υλικό</a>
                 </ul>
               );
             }
