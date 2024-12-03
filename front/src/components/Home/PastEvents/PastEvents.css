@@ -79,11 +79,12 @@
 .tabpanel--category-img {
     width: 80%;
     height: 25vh;
-    background-size: cover !important; /* I know it's bad practice, mui wants to override me! */
+    background-size: cover !important;
+    /* I know it's bad practice, mui wants to override me! */
     background-repeat: no-repeat !important;
-    background-position: center !important; 
+    background-position: center !important;
 
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,13 +100,15 @@
 
 
 .tabpanel--category-img--header {
-    filter: none; /* Prevent the child from inheriting the filter */
+    filter: none;
+    /* Prevent the child from inheriting the filter */
     color: var(--fg-third);
     font-size: 3rem;
     font-family: 'Mansalva', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
     text-align: center;
-    z-index: 1; /* Keep it above the parent */
+    z-index: 1;
+    /* Keep it above the parent */
 }
 
 
@@ -119,6 +122,12 @@
     font-family: 'Comfortaa', Courier New, Courier, monospace;
     font-size: 1.67rem;
     line-height: calc(100% + 25px);
+    overflow-y: scroll;
+    max-height: 26%;
+    -webkit-box-shadow: 10px 10px 91px -42px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 91px -42px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 91px -42px rgba(0,0,0,0.75);
+    border-radius: 16px;
 }
 
 .tabpanel--link-list>ul>a {
@@ -170,9 +179,12 @@
         width: calc(800px - 2rem);
         padding: 2rem 0rem;
     }
-    .tabpanel > *:not(img) {
+
+    .tabpanel>*:not(img) {
         padding: 1rem;
     }
 
-    .tabpanel--link-list {line-height: calc(100% + .52rem);}
+    .tabpanel--link-list {
+        line-height: calc(100% + .52rem);
+    }
 }
