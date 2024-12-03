@@ -31,7 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          cache-dependency-path: ./front/package-lock.json
+          cache-dependency-path: /front/package-lock.json
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
