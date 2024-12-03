@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime,timezone
 import os.path
 
 from google.auth.transport.requests import Request
@@ -11,9 +11,9 @@ from googleapiclient.errors import HttpError
 SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
 
 
-def main():
-  """Shows basic usage of the Google Calendar API.
-  Prints the start and name of the next 10 events on the user's calendar.
+def fetch_past_events(n):
+  """
+  Returns info of the past n events on the user's calendar.
   """
   creds = None
   # The file token.json stores the user's access and refresh tokens, and is
@@ -27,7 +27,7 @@ def main():
       creds.refresh(Request())
     else:
       flow = InstalledAppFlow.from_client_secrets_file(
-          "../.tokens/credentials.json", SCOPES
+          "./.tokens/credentials.json", SCOPES
       )
       creds = flow.run_local_server(port=0)
     # Save the credentials for the next run
@@ -38,14 +38,13 @@ def main():
     service = build("calendar", "v3", credentials=creds)
 
     # Call the Calendar API
-    now = datetime.datetime.utcnow().isoformat() + "Z"  # 'Z' indicates UTC time
-    print("Getting the upcoming 10 events")
+    now = datetime.now(timezone.utc).isoformat()  # ISO format includes 'Z' for UTC automatically
     events_result = (
         service.events()
         .list(
             calendarId="primary",
-            timeMin=now,
-            maxResults=10,
+            timeMax=now,
+            maxResults=n,
             singleEvents=True,
             orderBy="startTime",
         )
@@ -54,17 +53,26 @@ def main():
     events = events_result.get("items", [])
 
     if not events:
-      print("No upcoming events found.")
+      print("No past events found.")
       return
 
-    # Prints the start and name of the next 10 events
+    new_event_info = []
     for event in events:
-      start = event["start"].get("dateTime", event["start"].get("date"))
-      print(start, event["summary"])
+        start = event["start"].get("dateTime", event["start"].get("date"))
+        start_date = datetime.strptime(start.split("T")[0], "%Y-%m-%d").strftime("%d-%m-%Y")
+        new_event_info.append({
+                               'title': event["summary"], 
+                               'date': start_date,
+                               'category': event["location"] if event["location"] else None,
+                               'url': event["description"] if event["description"] else ""
+                              })
+
+    return(new_event_info)
+
 
   except HttpError as error:
-    print(f"An error occurred: {error}")
+    print(f"An http error occurred: {error}")
 
 
-if __name__ == "__main__":
-  main()
+# if __name__ == "__main__":
+#   fetch_past_events(10)

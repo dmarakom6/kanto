@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { useState } from "react";
 import "../PastEvents.css"
 import { styled } from '@mui/system';
 import { Tabs as BaseTabs } from '@mui/base/Tabs';
@@ -6,38 +7,68 @@ import { TabsList as BaseTabsList } from '@mui/base/TabsList';
 import { TabPanel as BaseTabPanel } from '@mui/base/TabPanel';
 import { buttonClasses } from '@mui/base/Button';
 import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
-const activity = { 'url': "" } // debug for link display
 
+import Calendar from '../../../../../data/calendar';
+
+let categories = new Set();
+Object.values(Calendar).forEach(event => {
+  if (event.category) {
+    categories.add(event.category);
+  }
+});
 
 export default function ActivityCategories() {
+  const [selectedTab, setSelectedTab] = useState(0);
+
+  const handleTabChange = (event, newValue) => {
+    setSelectedTab(newValue);
+  };
+
   return (
-    <Tabs defaultValue={0} orientation={window.innerWidth > 800 ? "vertical" : "horizontal"}>
+    <Tabs
+      value={selectedTab}
+      onChange={handleTabChange}
+      orientation={window.innerWidth > 800 ? "vertical" : "horizontal"}
+    >
       <TabsList>
-        <Tab>One</Tab>
-        <Tab>Two</Tab>
-        <Tab>Three</Tab>
-        <Tab>Four</Tab>
+        {Array.from(categories).map((c, index) => (
+          <Tab key={c} value={index}>
+            {c}
+          </Tab>
+        ))}
       </TabsList>
-      <TabPanel className="tabpanel" value={0}>
-        <div className="tabpanel--category-img" style={{ background: "url('/cat/history_dummy_img.jpg')" }}>
-          <div className="tabpanel--category-img--header">Ιστορία</div>
+
+      <TabPanel className="tabpanel" value={selectedTab}>
+        <div
+          className="tabpanel--category-img"
+          style={{ background: "url('/cat/history_dummy_img.jpg')" }}
+        >
+          <div className="tabpanel--category-img--header">{Array.from(categories)[selectedTab]}</div>
         </div>
-        <p className="tabpanel--p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam nesciunt, iusto consequuntur ipsam eaque aliquid temporibus accusantium odit placeat ea voluptatem error beatae maxime velit tempore, exercitationem officiis iste aliquam!</p>
+        <p className="tabpanel--p">
+          Δείτε τις προηγούμενες δραστηριότητές μας σχετικά με <b>{Array.from(categories)[selectedTab]}</b>:
+        </p>
+
+        {/* Render events for the selected category */}
         <div className="tabpanel--link-list">
-          <ul><span className="tabpanel--link-list-date">23/9/2024</span> Δραστηριότητα 1 - Παρακολούθηση της Παράστασης Ζ<a style={{ display: activity.url === "" ? "none" : "block" }} href="https://www.youtube.com">Youtube</a></ul>
-          <ul><span className="tabpanel--link-list-date">26/7/2024</span> Δραστηριότητα 2 - Επίσκεψη στο μουσείο Χ <a href="https://www.youtube.com">Vimeo</a></ul>
-          <ul><span className="tabpanel--link-list-date">29/6/2024</span> Δραστηριότητα 3 - Δωρεά στον μη-κερδοσκοπικό οργανισμό Υ<a href="https://www.youtube.com">PDF</a></ul>
+          {Object.values(Calendar).map((event) => {
+            if (event.category === Array.from(categories)[selectedTab]) {
+              return (
+                <ul key={event.title}>
+                  <span className="tabpanel--link-list-date">{event.date}</span> {event.title}{" "}
+                  <a href={event.url}>Υλικό</a>
+                </ul>
+              );
+            }
+            return null;
+          })}
         </div>
       </TabPanel>
-
-
-      <TabPanel value={1}>Second page</TabPanel>
-      <TabPanel value={2}>Third page</TabPanel>
     </Tabs>
   );
 }
 
-const main = "rgba(133, 58, 58, 1)"
+const main = "rgba(133, 58, 58, 1)";
 
 const Tab = styled(BaseTab)`
   font-family: 'Comfortaa', IBM Plex Sans, sans-serif;
@@ -120,3 +151,4 @@ const TabsList = styled(BaseTabsList)(
   }
   `
 );
+

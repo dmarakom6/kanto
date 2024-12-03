@@ -123,7 +123,7 @@
     font-size: 1.67rem;
     line-height: calc(100% + 25px);
     overflow-y: scroll;
-    max-height: 26%;
+    max-height: 30%;
     -webkit-box-shadow: 10px 10px 91px -42px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 91px -42px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 91px -42px rgba(0,0,0,0.75);
@@ -141,6 +141,8 @@
 }
 
 .tabpanel--link-list a[href^="http"]::after,
+.tabpanel--link-list a[href^="www"]::after,
+.tabpanel--link-list a[href^="../"]::after,
 .tabpanel--link-list a[href^="https://"]::after {
     content: "";
     width: 11px;
@@ -154,6 +156,8 @@
 }
 
 .tabpanel--link-list a[href^="http"]::before,
+.tabpanel--link-list a[href^="www"]::before,
+.tabpanel--link-list a[href^="../"]::before,
 .tabpanel--link-list a[href^="https://"]::before {
     content: "•";
     color: #666;
