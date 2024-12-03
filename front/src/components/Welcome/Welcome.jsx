@@ -28,7 +28,7 @@ export default function Welcome() {
                     <h1>Κάν&apos; το!</h1>
                     <p>
                         Γίνε μέλος της ομάδας μας και δραστηριοποιήσου μαζί μας σήμερα. Μαζί, θα κάνουμε τα <i>λόγια</i>, <b>πράξη</b>. Σε περιμένουμε στον{' '}
-                        <a href="#">κοινό μας χώρο</a>.
+                        <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14a1bd5a1968954d:0xa6192a8eb73845bd?sa=X&ictx=111">κοινό μας χώρο</a>.
                     </p>
                     <button onClick={handleClick}>Κάν&apos;το Τώρα</button>
                 </div>
