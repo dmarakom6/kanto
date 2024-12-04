@@ -82,7 +82,7 @@ def fetch_past_events(n):
                                'title': event["summary"], 
                                'date': start_date,
                                'category': event["location"] or "Χωρίς Κατηγορία",
-                               'url': event["description"] or ""
+                               'url': event["description"] or " "
                               })
 
     return new_event_info
