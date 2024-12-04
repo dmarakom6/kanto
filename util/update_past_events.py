@@ -4,7 +4,7 @@ from gcalendar.update_id import *
 import json
 import sys
 
-print(sys.argv[0])
+print("Debug: ", sys.argv[0])
 
 with open("../front/data/calendar.json", "r") as file:
     existing_events = json.load(file)
