@@ -15,10 +15,12 @@ jobs:
             python-version: '3.10'
       - name: Install pip requirements
         run: cd util && pip install -r requirements.txt
+      - name: Update calendar.json
+        run: cd util && python update_past_events.py
       - name: Upload calendar.json to compatible s3 service
         uses: koraykoska/s3-upload-github-action@master
         env:
-          FILE: ../front/data/calendar.json
+          FILE: ./front/data/calendar.json
           S3_PREFIX: public
           S3_ENDPOINT: ${{ secrets.TIGRIS_ENDPOINT_URL }}
           S3_BUCKET: ${{ secrets.TIGRIS_BUCKET_NAME }}
