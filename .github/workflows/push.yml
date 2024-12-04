@@ -15,8 +15,12 @@ jobs:
             python-version: '3.10'
       - name: Install pip requirements
         run: cd util && pip install -r requirements.txt
+      - name: Create credentials
+        run: cd util && echo ${{ secrets.GCAL_CREDENTIALS }} > gcal_credentials.json
       - name: Update calendar.json
-        run: cd util && python update_past_events.py ${{ secrets.GCAL_CREDENTIALS }}
+        run: cd util && python update_past_events.py
+      - name: Remove credentials
+        run: cd util && rm -f gcal_credentials.json
       - name: Upload calendar.json to compatible s3 service
         uses: koraykoska/s3-upload-github-action@master
         env:
