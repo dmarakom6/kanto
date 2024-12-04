@@ -78,12 +78,21 @@ def fetch_past_events(n):
     for event in events:
         start = event["start"].get("dateTime", event["start"].get("date"))
         start_date = datetime.strptime(start.split("T")[0], "%Y-%m-%d").strftime("%d-%m-%Y")
-        new_event_info.append({
+        try:
+          new_event_info.append({
                                'title': event["summary"], 
                                'date': start_date,
                                'category': event["location"] or "Χωρίς Κατηγορία",
-                               'url': event["description"] or " "
+                               'url': event["description"]
                               })
+        except KeyError:
+          new_event_info.append({
+                               'title': event["summary"], 
+                               'date': start_date,
+                               'category': event["location"],
+                               'url': " "
+                              })
+          
 
     return new_event_info
 
