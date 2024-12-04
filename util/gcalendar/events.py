@@ -11,7 +11,7 @@ from googleapiclient.errors import HttpError
 SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
 
 
-def fetch_past_events(n):
+def fetch_past_events(n, credentials):
   """
   Returns info of the past n events on the user's calendar.
   """
@@ -27,7 +27,7 @@ def fetch_past_events(n):
       creds.refresh(Request())
     else:
       flow = InstalledAppFlow.from_client_secrets_file(
-          "./.tokens/credentials.json", SCOPES
+          credentials, SCOPES
       )
       creds = flow.run_local_server(port=0)
     # Save the credentials for the next run
