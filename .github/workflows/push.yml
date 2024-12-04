@@ -15,6 +15,8 @@ jobs:
             python-version: '3.10'
       - name: Install pip requirements
         run: cd util && pip install -r requirements.txt
+      - name: Fetch calendar.json
+        run: cd front/data && curl -s 'https://fly.storage.tigris.dev/kanto-calendar/public/front/data/calendar.json' -o calendar.json  
       - name: Update calendar.json
         run: cd util && touch gcaltoken.json && python update_past_events.py && rm -f gcaltoken.json
         env:

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../PastEvents.css"
 import { styled } from '@mui/system';
 import { Tabs as BaseTabs } from '@mui/base/Tabs';
@@ -10,16 +10,41 @@ import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
 
 import CategoryImg from '../../../../assets/cat/history_dummy_img.jpg'
 
-import Calendar from '../../../../../data/calendar';
-
-let categories = new Set();
-Object.values(Calendar).forEach(event => {
-  if (event.category) {
-    categories.add(event.category);
-  }
-});
-
 export default function ActivityCategories() {
+
+  const [calendarData, setCalendarData] = useState({});
+
+  useEffect(() => {
+    const storedData = localStorage.getItem('calendarData');
+
+    if (storedData) {
+      setCalendarData(JSON.parse(storedData));
+    } else {
+      fetch('https://fly.storage.tigris.dev/kanto-calendar/public/front/data/calendar.json')
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          localStorage.setItem('calendarData', JSON.stringify(data));
+          setCalendarData(data);
+        })
+        .catch((error) => {
+          console.error('There was a problem with the fetch operation:', error);
+        });
+    }
+  }, []);
+
+
+  let categories = new Set();
+  Object.values(calendarData).forEach(event => {
+    if (event.category) {
+      categories.add(event.category);
+    }
+  });
+
   const [selectedTab, setSelectedTab] = useState(0);
 
   const handleTabChange = (event, newValue) => {
@@ -53,7 +78,7 @@ export default function ActivityCategories() {
 
         {/* Render events for the selected category */}
         <div className="tabpanel--link-list">
-          {Object.values(Calendar).map((event) => {
+          {Object.values(calendarData).map((event) => {
             if (event.category === Array.from(categories)[selectedTab]) {
               return (
                 <ul key={event.title}>
