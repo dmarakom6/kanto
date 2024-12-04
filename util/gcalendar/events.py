@@ -82,7 +82,7 @@ def fetch_past_events(n):
                                'title': event["summary"], 
                                'date': start_date,
                                'category': event["location"] if event["location"] else None,
-                               'url': event["description"] if event["description"] else ""
+                               'url': event["description"] if event["description"] else None
                               })
 
     return(new_event_info)
