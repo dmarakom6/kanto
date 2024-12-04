@@ -15,12 +15,18 @@ jobs:
             python-version: '3.10'
       - name: Install pip requirements
         run: cd util && pip install -r requirements.txt
-      - name: Create credentials
-        run: cd util && echo '${{ secrets.GCAL_CREDENTIALS }}' > gcal_credentials.json
       - name: Update calendar.json
-        run: cd util && python update_past_events.py
-      - name: Remove credentials
-        run: cd util && rm -f gcal_credentials.json
+        run: cd util && touch gcaltoken.json && python update_past_events.py && rm -f gcaltoken.json
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          TOKEN_URI: ${{ secrets.TOKEN_URI }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          SCOPES: '["https://www.googleapis.com/auth/calendar.readonly"]'
+          UNIVERSE_DOMAIN: ${{ secrets.UNIVERSE_DOMAIN }}
+          ACCOUNT: ${{ secrets.ACCOUNT }}
+          EXPIRY: ${{ secrets.EXPIRY }}
       - name: Upload calendar.json to compatible s3 service
         uses: koraykoska/s3-upload-github-action@master
         env:

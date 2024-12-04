@@ -1,12 +1,30 @@
 from datetime import datetime,timezone
-import os.path
+from dotenv import load_dotenv
 import json
+import os
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+
+load_dotenv(dotenv_path="../.env")
+
+token_data = {
+    "token": os.getenv("TOKEN"),
+    "refresh_token": os.getenv("REFRESH_TOKEN"),
+    "token_uri": os.getenv("TOKEN_URI"),
+    "client_id": os.getenv("CLIENT_ID"),
+    "client_secret": os.getenv("CLIENT_SECRET"),
+    "scopes": json.loads(os.getenv("SCOPES")),  # Convert string back to list
+    "universe_domain": os.getenv("UNIVERSE_DOMAIN"),
+    "account": os.getenv("ACCOUNT"),
+    "expiry": os.getenv("EXPIRY"),
+}
+
+with open("./gcaltoken.json", "w") as gcal:
+    json.dump(token_data, gcal, indent=4)
 
 # If modifying these scopes, delete the file gcaltoken.json.
 SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
@@ -20,8 +38,7 @@ def fetch_past_events(n):
   # The file gcaltoken.json stores the user's access and refresh tokens, and is
   # created automatically when the authorization flow completes for the first
   # time.
-  if os.path.exists("gcaltoken.json"):
-    creds = Credentials.from_authorized_user_file("gcaltoken.json", SCOPES)
+  creds = Credentials.from_authorized_user_file("gcaltoken.json", SCOPES)
   # If there are no (valid) credentials available, let the user log in.
   if not creds or not creds.valid:
     if creds and creds.expired and creds.refresh_token:
