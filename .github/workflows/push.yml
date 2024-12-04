@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  scrape:
+  push-calendar:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,8 +17,6 @@ jobs:
         run: cd util
       - name: Install pip requirements
         run: pip install -r requirements.txt
-      - name: Run scraper
-        run: python update_past_events.py
       - name: Upload calendar.json to compatible s3 service
         uses: koraykoska/s3-upload-github-action@master
         env:
