@@ -2,7 +2,6 @@ from gcalendar.events import *
 from gcalendar.update_id import *
 
 import json
-import sys
 
 with open("../front/data/calendar.json", "r") as file:
     existing_events = json.load(file)
@@ -16,12 +15,15 @@ past_events = {}
 id = increment_id(get_last_id("calendar.json"))
 
 # Add only unique events
-for event in past_event_info:
-    # Serialize the event to a string and check for duplicates
-    if json.dumps(event, sort_keys=True) not in existing_event_values:
-        past_events[f"{id}"] = event
-        id += 1
-
+if past_event_info:
+    for event in past_event_info:
+        # Serialize the event to a string and check for duplicates
+        if json.dumps(event, sort_keys=True) not in existing_event_values:
+            past_events[f"{id}"] = event
+            id += 1
+else:
+    print("No events to add.")
+    exit(0)
 # Merge past_events into existing_events
 existing_events.update(past_events)
 
