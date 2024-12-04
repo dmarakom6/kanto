@@ -16,7 +16,7 @@ jobs:
       - name: Install pip requirements
         run: cd util && pip install -r requirements.txt
       - name: Create credentials
-        run: cd util && echo ${{ secrets.GCAL_CREDENTIALS }} > gcal_credentials.json
+        run: cd util && echo '${{ secrets.GCAL_CREDENTIALS }}' > gcal_credentials.json
       - name: Update calendar.json
         run: cd util && python update_past_events.py
       - name: Remove credentials
