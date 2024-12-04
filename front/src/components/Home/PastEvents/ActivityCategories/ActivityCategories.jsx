@@ -15,26 +15,22 @@ export default function ActivityCategories() {
   const [calendarData, setCalendarData] = useState({});
 
   useEffect(() => {
-    const storedData = localStorage.getItem('calendarData');
 
-    if (storedData) {
-      setCalendarData(JSON.parse(storedData));
-    } else {
-      fetch('https://fly.storage.tigris.dev/kanto-calendar/public/front/data/calendar.json')
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then((data) => {
-          localStorage.setItem('calendarData', JSON.stringify(data));
-          setCalendarData(data);
-        })
-        .catch((error) => {
-          console.error('There was a problem with the fetch operation:', error);
-        });
-    }
+    fetch('https://fly.storage.tigris.dev/kanto-calendar/public/front/data/calendar.json')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        localStorage.setItem('calendarData', JSON.stringify(data));
+        setCalendarData(data);
+      })
+      .catch((error) => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+
   }, []);
 
 
