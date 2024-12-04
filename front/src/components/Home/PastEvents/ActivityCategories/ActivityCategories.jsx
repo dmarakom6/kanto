@@ -8,6 +8,8 @@ import { TabPanel as BaseTabPanel } from '@mui/base/TabPanel';
 import { buttonClasses } from '@mui/base/Button';
 import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
 
+import CategoryImg from '../../../../assets/cat/history_dummy_img.jpg'
+
 import Calendar from '../../../../../data/calendar';
 
 let categories = new Set();
@@ -41,7 +43,7 @@ export default function ActivityCategories() {
       <TabPanel className="tabpanel" value={selectedTab}>
         <div
           className="tabpanel--category-img"
-          style={{ background: "url('/cat/history_dummy_img.jpg')" }}
+          style={{ background: `url(${CategoryImg})` }}
         >
           <div className="tabpanel--category-img--header">{Array.from(categories)[selectedTab]}</div>
         </div>
