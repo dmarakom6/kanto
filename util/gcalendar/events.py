@@ -81,11 +81,11 @@ def fetch_past_events(n):
         new_event_info.append({
                                'title': event["summary"], 
                                'date': start_date,
-                               'category': event["location"] if event["location"] else None,
-                               'url': event["description"] if event["description"] else None
+                               'category': event["location"],
+                               'url': event["description"]
                               })
 
-    return(new_event_info)
+    return new_event_info
 
 
   except HttpError as error:
