@@ -27,8 +27,9 @@ def fetch_past_events(n, credentials):
     if creds and creds.expired and creds.refresh_token:
       creds.refresh(Request())
     else:
+      print(credentials)
       flow = InstalledAppFlow.from_client_config(
-          json.loads(credentials), SCOPES
+          credentials , SCOPES
       )
       creds = flow.run_local_server(port=0)
     # Save the credentials for the next run
