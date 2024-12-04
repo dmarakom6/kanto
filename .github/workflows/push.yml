@@ -1,9 +1,9 @@
 name: Push calendar to S3 bucket
 
 on:
-  schedule:
+  # schedule:
     # Run every Monday at 00:00 UTC
-    - cron: "0 0 * * 1"
+    # - cron: "0 0 * * 1"
 
   workflow-dispatch:
 
