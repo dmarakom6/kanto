@@ -81,8 +81,8 @@ def fetch_past_events(n):
         new_event_info.append({
                                'title': event["summary"], 
                                'date': start_date,
-                               'category': event["location"],
-                               'url': event["description"]
+                               'category': event["location"] or "Χωρίς Κατηγορία",
+                               'url': event["description"] or ""
                               })
 
     return new_event_info
