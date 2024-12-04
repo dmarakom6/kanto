@@ -4,10 +4,11 @@ from gcalendar.update_id import *
 import json
 import sys
 
+print(sys.argv[0])
+
 with open("../front/data/calendar.json", "r") as file:
     existing_events = json.load(file)
 
-print(sys.argv[0])
 past_event_info = fetch_past_events(10, sys.argv[0]) #default
 
 # Create a set of existing event values for quick comparison, might find a quicker way in the future
