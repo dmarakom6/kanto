@@ -15,18 +15,6 @@
         "title": "Test Event",
         "date": "02-12-2024",
         "category": "Συζητήσεις",
-        "url": ""
-    },
-    "4": {
-        "title": "Test Event 2",
-        "date": "02-12-2024",
-        "category": "Συζητήσεις",
-        "url": ""
-    },
-    "5": {
-        "title": "Test Event 3",
-        "date": "03-12-2024",
-        "category": "Διαλέξεις",
-        "url": ""
+        "url": "www.vimeo.com"
     }
 }
