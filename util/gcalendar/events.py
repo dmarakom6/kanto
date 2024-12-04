@@ -90,7 +90,7 @@ def fetch_past_events(n):
                                'title': event["summary"], 
                                'date': start_date,
                                'category': event["location"],
-                               'url': " "
+                               'url': ""
                               })
           
 
