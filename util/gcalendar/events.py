@@ -12,7 +12,7 @@ from googleapiclient.errors import HttpError
 SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
 
 
-def fetch_past_events(n, credentials):
+def fetch_past_events(n):
   """
   Returns info of the past n events on the user's calendar.
   """
