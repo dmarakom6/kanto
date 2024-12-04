@@ -1,5 +1,6 @@
 from datetime import datetime,timezone
 import os.path
+import json
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -26,9 +27,8 @@ def fetch_past_events(n, credentials):
     if creds and creds.expired and creds.refresh_token:
       creds.refresh(Request())
     else:
-      print("SECRETS: ", type(credentials))
       flow = InstalledAppFlow.from_client_config(
-          credentials, SCOPES
+          json.loads(credentials), SCOPES
       )
       creds = flow.run_local_server(port=0)
     # Save the credentials for the next run
