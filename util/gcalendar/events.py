@@ -9,7 +9,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-load_dotenv(dotenv_path="../.env")
+load_dotenv(dotenv_path=".tokens/.env")
 
 token_data = {
     "token": os.getenv("TOKEN"),
@@ -17,7 +17,7 @@ token_data = {
     "token_uri": os.getenv("TOKEN_URI"),
     "client_id": os.getenv("CLIENT_ID"),
     "client_secret": os.getenv("CLIENT_SECRET"),
-    "scopes": json.loads(os.getenv("SCOPES")),  # Convert string back to list
+    "scopes": ["https://www.googleapis.com/auth/calendar.readonly"],
     "universe_domain": os.getenv("UNIVERSE_DOMAIN"),
     "account": os.getenv("ACCOUNT"),
     "expiry": os.getenv("EXPIRY"),
@@ -45,7 +45,7 @@ def fetch_past_events(n):
       creds.refresh(Request())
     else:
       flow = InstalledAppFlow.from_client_secrets_file(
-          "./gcal_credentials.json" , SCOPES
+          ".tokens/credentials.json" , SCOPES
       )
       creds = flow.run_local_server(port=0)
     # Save the credentials for the next run
