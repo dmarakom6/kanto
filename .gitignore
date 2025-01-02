@@ -163,3 +163,4 @@ util/.tokens/
 util/token.json
 util/gcalendar/token.json
 util/gcaltoken.json
+.DS_Store

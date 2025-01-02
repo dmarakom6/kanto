@@ -70,15 +70,21 @@ export default function ActivityCategories() {
           className="tabpanel--category-img"
           style={{ background: `url(${CategoryImg})` }}
         >
-          <div className="tabpanel--category-img--header">{currentCategory}</div>
+          <div className="tabpanel--category-img--header">{currentCategory || "Επιλέξτε μια Κατηγορία"}</div>
         </div>
         <p className="tabpanel--p">
         {
-          Categories.currentCategory
+          Categories[currentCategory]
         }
         </p>
         <p className="tabpanel--p">
-          Δείτε τις προηγούμενες δραστηριότητές μας σχετικά με <b>{Array.from(categories)[selectedTab]}</b>:
+          { currentCategory ? (
+            <>
+                Δείτε τις προηγούμενες δραστηριότητές μας σχετικά με <b>{categories[currentCategory]}</b>:
+            </>
+          ) : (
+            "Πατήστε πάνω σε μια κατηγορία στα αριστερά για να δείτε το περιεχόμενό της."
+          )}
         </p>
 
         {/* Render events for the selected category */}
