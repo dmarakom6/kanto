@@ -8,6 +8,8 @@ import { TabPanel as BaseTabPanel } from '@mui/base/TabPanel';
 import { buttonClasses } from '@mui/base/Button';
 import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
 
+import Categories from "../../../../../data/categories.json"
+
 import CategoryImg from '../../../../assets/cat/history_dummy_img.jpg'
 
 export default function ActivityCategories() {
@@ -47,6 +49,8 @@ export default function ActivityCategories() {
     setSelectedTab(newValue);
   };
 
+  let currentCategory = Array.from(categories)[selectedTab];
+
   return (
     <Tabs
       value={selectedTab}
@@ -66,8 +70,13 @@ export default function ActivityCategories() {
           className="tabpanel--category-img"
           style={{ background: `url(${CategoryImg})` }}
         >
-          <div className="tabpanel--category-img--header">{Array.from(categories)[selectedTab]}</div>
+          <div className="tabpanel--category-img--header">{currentCategory}</div>
         </div>
+        <p className="tabpanel--p">
+        {
+          Categories.currentCategory
+        }
+        </p>
         <p className="tabpanel--p">
           Δείτε τις προηγούμενες δραστηριότητές μας σχετικά με <b>{Array.from(categories)[selectedTab]}</b>:
         </p>
