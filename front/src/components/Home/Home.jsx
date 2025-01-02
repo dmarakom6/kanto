@@ -1,3 +1,5 @@
+import "./home.css"
+
 import EventCalendar from "./EventCalendar/EventCalendar";
 import Navbar from "./Navbar/Navbar";
 import PastEvents from "./PastEvents/PastEvents";

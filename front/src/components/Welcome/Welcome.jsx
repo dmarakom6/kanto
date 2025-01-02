@@ -23,16 +23,30 @@ export default function Welcome() {
 
     return (
         !isHidden && (
-            <div className={`welcome-container ${isVisible ? 'visible' : 'hidden'}`}>
-                <div className="welcome-container--box">
-                    <h1>Κάν&apos; το!</h1>
-                    <p>
-                        Γίνε μέλος της ομάδας μας και δραστηριοποιήσου μαζί μας σήμερα. Μαζί, θα κάνουμε τα <i>λόγια</i>, <b>πράξη</b>. Σε περιμένουμε στον{' '}
-                        <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14a1bd5a1968954d:0xa6192a8eb73845bd?sa=X&ictx=111">κοινό μας χώρο</a>.
-                    </p>
-                    <button onClick={handleClick}>Κάν&apos;το Τώρα</button>
+            <>
+
+                <div className={`welcome-container ${isVisible ? 'visible' : 'hidden'}`}>
+                    <img src="fulllogo.jpg" alt="Κάντο!" />
+
+                    <div className="welcome-container--box">
+                        <div className="intro">
+                            <div className='intro-header'>
+                                <h1>Χωρίς Μεγάλα Λόγια - Ψευδοσοφίες - Φανφάρες.</h1>
+                                <small>Δείτε μας στο Χάρτη πατώντας <a href='https://www.google.com/maps/place//data=!4m2!3m1!1s0x14a1bd5a1968954d:0xa6192a8eb73845bd?sa=X&ved=1t:8290&ictx=111'>εδώ</a>.</small>
+                            </div>
+
+                            <ul><b>Δεν</b> ισχυριζόμαστε:
+                                <li>ότι έχουμε τη σωστή απάντηση για ό,τι γίνεται γύρω μας. Θέλουμε την προσωπική σου γνώμη. </li>
+                                <li>ότι μπορούμε να τα κάνουμε εμείς. Θέλουμε τη δική σου συμμετοχή.</li>
+                                <li>ότι είμαστε πρωτοπόροι. Απλά συντονίζουμε.</li>
+                            </ul>
+                        </div>
+                        <div className="button-container">
+                            <button onClick={handleClick}>Πατήστε εδώ</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </>
         )
     );
 }
