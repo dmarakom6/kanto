@@ -89,7 +89,7 @@ export default function ActivityCategories() {
 
         {/* Render events for the selected category */}
         <div className="tabpanel--link-list">
-          {Object.values(calendarData).map((event) => {
+          {Object.values(calendarData).filter(event => event.url || (!event.url && !event.recurring)).map((event) => {
             if (event.category === Array.from(categories)[selectedTab]) {
               return (
                 <ul key={event.title}>

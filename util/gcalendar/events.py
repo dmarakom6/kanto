@@ -83,14 +83,16 @@ def fetch_past_events(n):
                                'title': event["summary"], 
                                'date': start_date,
                                'category': event["location"] or "Χωρίς Κατηγορία",
-                               'url': event["description"]
+                               'url': event["description"],
+                               'recurring': "recurringEventId" in event
                               })
         except KeyError:
           new_event_info.append({
                                'title': event["summary"], 
                                'date': start_date,
                                'category': event["location"],
-                               'url': ""
+                               'url': "",
+                               'recurring': "recurringEventId" in event
                               })
           
 
