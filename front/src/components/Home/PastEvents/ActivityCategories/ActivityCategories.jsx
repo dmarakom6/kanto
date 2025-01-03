@@ -49,7 +49,7 @@ export default function ActivityCategories() {
     setSelectedTab(newValue);
   };
 
-  let currentCategory = Array.from(categories)[selectedTab];
+  const currentCategory = Array.from(categories)[selectedTab];
 
   return (
     <Tabs
@@ -80,7 +80,7 @@ export default function ActivityCategories() {
         <p className="tabpanel--p">
           { currentCategory ? (
             <>
-                Δείτε τις προηγούμενες δραστηριότητές μας σχετικά με <b>{categories[currentCategory]}</b>:
+                Δείτε τις προηγούμενες δραστηριότητές μας σχετικά με <b>{currentCategory}</b>:
             </>
           ) : (
             "Πατήστε πάνω σε μια κατηγορία στα αριστερά για να δείτε το περιεχόμενό της."
