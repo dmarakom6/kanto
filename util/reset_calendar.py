@@ -7,7 +7,7 @@ def reset_calendar():
         "date": "",
         "category": "",
         "url": "",
-        "recurring: false
+        "recurring": false
         }
 }""")
     
