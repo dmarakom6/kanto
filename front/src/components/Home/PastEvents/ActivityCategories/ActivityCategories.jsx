@@ -10,7 +10,7 @@ import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
 
 import Categories from "../../../../../data/categories.json"
 
-import CategoryImg from '../../../../assets/cat/history_dummy_img.jpg'
+import CategoryImg from "../../../../../data/categoryImage.json"
 
 export default function ActivityCategories() {
 
@@ -68,7 +68,7 @@ export default function ActivityCategories() {
       <TabPanel className="tabpanel" value={selectedTab}>
         <div
           className="tabpanel--category-img"
-          style={{ background: `url(${CategoryImg})` }}
+          style={{ background: `url(${CategoryImg[currentCategory] || "/kanto/assets/cat/history_dummy_img.jpg"})` }}
         >
           <div className="tabpanel--category-img--header">{currentCategory || "Επιλέξτε μια Κατηγορία"}</div>
         </div>
