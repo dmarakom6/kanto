@@ -4,7 +4,7 @@ from gcalendar.update_id import *
 import json
 
 with open("../front/data/calendar.json", "r") as file:
-    existing_events = json.load(file)
+    existing_events = json.load(file, strict=False)
 
 past_event_info = fetch_past_events(15) #default
 
