@@ -73,14 +73,14 @@ export default function ActivityCategories() {
           <div className="tabpanel--category-img--header">{currentCategory || "Επιλέξτε μια Κατηγορία"}</div>
         </div>
         <p className="tabpanel--p">
-        {
-          Categories[currentCategory]
-        }
+          {
+            Categories[currentCategory]
+          }
         </p>
         <p className="tabpanel--p">
-          { currentCategory ? (
+          {currentCategory ? (
             <>
-                Δείτε τις προηγούμενες δραστηριότητές μας σχετικά με <b>{currentCategory}</b>:
+              Δείτε τις προηγούμενες δραστηριότητές μας σχετικά με <b>{currentCategory}</b>:
             </>
           ) : (
             "Πατήστε πάνω σε μια κατηγορία στα αριστερά για να δείτε το περιεχόμενό της."
@@ -91,10 +91,11 @@ export default function ActivityCategories() {
         <div className="tabpanel--link-list">
           {Object.values(calendarData).filter(event => event.url || (!event.url && !event.recurring)).map((event) => {
             if (event.category === Array.from(categories)[selectedTab]) {
+              const parsedUrl = event.url ? event.url.replace(/<\/?a[^>]*>/g, "") : "";
               return (
                 <ul key={event.title}>
                   <span className="tabpanel--link-list-date">{event.date}</span> {event.title}{" "}
-                  <a href={event.url} style={{ display: event.url === "" ? "none" : "inline" }}>Υλικό</a>
+                  <a href={parsedUrl} style={{ display: parsedUrl === "" ? "none" : "inline" }}>Υλικό</a>
                 </ul>
               );
             }
