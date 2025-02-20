@@ -11,7 +11,7 @@
 
     color: var(--fg-primary);
 
-    background: url("https://img.freepik.com/free-photo/confident-business-people-diversity-teamwork-concept_53876-127138.jpg?semt=ais_hybrid") center no-repeat;
+    background: url("/assets/cat/Vision.jpg") center no-repeat;
     background-size: cover;
     background-blend-mode: color-dodge;
     border-radius: 16px;
@@ -83,4 +83,3 @@
 .vision--inner a:hover {
     font-weight: bold;
 }
-
