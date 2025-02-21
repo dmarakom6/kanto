@@ -3,6 +3,9 @@
     z-index: 999;
 }
 
+.css-1ph5a5p {
+    place-content: normal !important;
+}
 
 .past-events {
     height: 100%;
@@ -81,7 +84,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+
+    gap: 1.2rem;
 }
 
 .tabpanel--category-img {
@@ -157,7 +161,7 @@
     border-radius: 16px;
 
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     /* Latest Event first */
 }
 

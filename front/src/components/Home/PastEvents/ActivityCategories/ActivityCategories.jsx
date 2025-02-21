@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "../PastEvents.css"
 import { styled } from '@mui/system';
 import { Tabs as BaseTabs } from '@mui/base/Tabs';
@@ -34,7 +34,6 @@ export default function ActivityCategories() {
       });
 
   }, []);
-
 
   let categories = new Set();
   Object.values(calendarData).forEach(event => {
@@ -88,8 +87,8 @@ export default function ActivityCategories() {
         </p>
 
         {/* Render events for the selected category */}
-        <div className="tabpanel--link-list">
-          {Object.values(calendarData).filter(event => event.url || (!event.url && !event.recurring)).map((event) => {
+        <div id="linklist" className="tabpanel--link-list">
+          {Object.values(calendarData).reverse().filter(event => event.url || (!event.url && !event.recurring)).map((event) => {
             if (event.category === Array.from(categories)[selectedTab]) {
               const parsedUrl = event.url ? event.url.replace(/<\/?a[^>]*>/g, "") : "";
               return (
