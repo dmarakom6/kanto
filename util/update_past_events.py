@@ -6,7 +6,7 @@ import json
 with open("../front/data/calendar.json", "r") as file:
     existing_events = json.load(file, strict=False)
 
-past_event_info = fetch_past_events(15) #default
+past_event_info = fetch_past_events(100) #default
 
 # Create a set of existing event values for quick comparison, might find a quicker way in the future
 existing_event_values = {json.dumps(event, sort_keys=True) for event in existing_events.values()}
