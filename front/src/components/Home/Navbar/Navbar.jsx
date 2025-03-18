@@ -8,7 +8,7 @@ export default function Navbar() {
     const Links = {
         "Ημερολόγιο": "#imerologio",
         "Δραστηριότητες": "#drastiriotites",
-        "Τι θα θέλαμε": "#orama"
+        "Τι θέλουμε": "#orama"
     }
 
     return (
