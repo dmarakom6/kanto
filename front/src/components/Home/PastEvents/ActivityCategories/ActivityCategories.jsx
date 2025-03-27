@@ -181,6 +181,7 @@ const TabsList = styled(BaseTabsList)(
   
   @media (max-width: 1145px) {
     width: 100%;
+    height: 7rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(7rem, 2fr)); /* Adjust column size for smaller screens */
     position: sticky;
