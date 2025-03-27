@@ -42,7 +42,6 @@ nav.nav {
 .nav--links a {
     color: var(--fg-primary);
     font-weight: 500;
-    margin-right: 4em;
     text-decoration: none;
     cursor: pointer;
 
@@ -61,14 +60,16 @@ nav.nav {
 
 @media screen and (max-width: 800px) {
     nav.nav {
-        justify-content: space-around;
+        justify-content: center;
     }
 
     .nav--bigLogo {
         display: none;
     }
 
-    .nav--links a {
-        margin-right: 1rem;
+    .nav--links {
+        gap: 1rem;
     }
+
+
 }
