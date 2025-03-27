@@ -75,7 +75,18 @@
     .vision h1 {
         font-size: 2rem;
     }
+
 }
+
+@media screen and (max-width: 900px) {
+
+    .vision--outer {
+        padding: 0;
+    }
+}
+
+
+
 
 .vision--inner a {
     color: var(--fg-third);
